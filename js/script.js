@@ -5,10 +5,11 @@ for (i = 0; i < video.length; i++) {
 
     video[i].addEventListener("click", function() {
         const controls = this.nextElementSibling;
-        if (controls.innerHTML === "▶") {
+        if (controls.innerHTML == "▶") {
             controls.innerHTML = "| |";
             this.play();
-        } else {
+        }
+        else {
             controls.innerHTML = "▶";
             this.pause();
         }
@@ -18,6 +19,13 @@ for (i = 0; i < video.length; i++) {
         const controls = this.nextElementSibling;
         if (!this.paused) {
             controls.style.display = "none";
+        }
+    });
+
+    video[i].addEventListener("pause", function() {
+        const controls = this.nextElementSibling;
+        if (!this.paused) {
+            controls.style.display = "flex";
         }
     });
 
